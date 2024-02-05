@@ -14,6 +14,14 @@ Tablomuz bu şekilde başladığı için sıradaki ilk müsait tanımlayıcı 3'
 
 ⚡Kısacası dosya tanımlayıcıları sistemdeki bir dosyaya erişmek için kullanılır ve bu erişim, sistemdeki dosyalarda okuma, yazma ve değiştirme işlemlerini gerçekleştirmek için gereklidir.
 
+ ```bash
+
+int fd = open ( "example.txt" , O_RDONLY); //
+char buffer[ 256 ] dosyasını açın ; 
+oku (fd, arabellek, 256 ); // 256 byte'ı oku 
+kapat (fd); // Dosyayı kapat
+
+```
 örnekk 
  ```bash
   
