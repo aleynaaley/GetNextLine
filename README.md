@@ -54,3 +54,22 @@ int main()
 ```
 
 
+notlar 
+-- dosya tanımlayıcısı ile inodeler arasındaki fark----
+Dosya Tanımlayıcıları, dosyalarla etkileşim için geçici, çalışma zamanı geçişleriniz gibidir; Inode'lar ise tüm önemli ayrıntıları tutan kalıcı sahne arkası kimlikleridir.
+
+İlişki
+İşte nasıl etkileşimde bulundukları:
+
+Dosya Açma : Bir dosyayı açtığınızda, işletim sistemi dosyanın meta verilerini almak için Inode'u arar ve ardından gelecekteki işlemler için bir Dosya Tanımlayıcı sağlar.
+Okuma/Yazma : Bir FD kullanarak okuduğunuzda veya yazdığınızda, işletim sistemi, diskteki verilerin nerede okunacağını/yazılacağını bulmak için Inode'a başvurur.
+Çoklu Erişim : Farklı işlemler aynı dosyayı açtığında veya bir dosyanın birden fazla sabit bağlantısı olduğunda birden fazla FD aynı Inode'a işaret edebilir.
+
+
+
+...................................................
+ dosya tanımlayıcıları genellikle bir tam sayı değeri olarak temsil edilir ve genellikle int veri tipi kullanılır. İşletim sistemi, bir dosya açıldığında, o dosyayı temsil etmek için benzersiz bir tam sayı değeri atar. Bu değer, programın o dosyayı daha sonra okuması veya yazması için bir “tanımlayıcı” veya “işaretçi” olarak kullanılır.
+
+Örneğin, Unix ve Unix-benzeri işletim sistemlerinde (Linux, BSD, macOS vb.), open sistem çağrısı bir dosyayı açar ve bir dosya tanımlayıcısı döndürür. Bu dosya tanımlayıcısı, read, write, close gibi diğer sistem çağrılarında kullanılır.
+
+Bununla birlikte, dosya tanımlayıcıları sadece dosyalar için değil, aynı zamanda ağ soketleri, cihazlar, hatta bazen işlemler ve hafıza alanları gibi diğer sistem kaynakları için de kullanılır. Bu, işletim sisteminin bu kaynakları birleşik bir şekilde yönetmesini sağlar. Bu nedenle, dosya tanımlayıcıları genellikle “kaynak tanımlayıcıları” olarak da adlandırılır
