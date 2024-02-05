@@ -67,7 +67,7 @@ Okuma/Yazma : Bir FD kullanarak okuduğunuzda veya yazdığınızda, işletim si
 
 
 
-...................................................
+# ...................................................
  dosya tanımlayıcıları genellikle bir tam sayı değeri olarak temsil edilir ve genellikle int veri tipi kullanılır. İşletim sistemi, bir dosya açıldığında, o dosyayı temsil etmek için benzersiz bir tam sayı değeri atar. Bu değer, programın o dosyayı daha sonra okuması veya yazması için bir “tanımlayıcı” veya “işaretçi” olarak kullanılır.
 
 Örneğin, Unix ve Unix-benzeri işletim sistemlerinde (Linux, BSD, macOS vb.), open sistem çağrısı bir dosyayı açar ve bir dosya tanımlayıcısı döndürür. Bu dosya tanımlayıcısı, read, write, close gibi diğer sistem çağrılarında kullanılır.
