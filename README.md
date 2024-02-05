@@ -60,7 +60,7 @@ Dosya Tanımlayıcıları, dosyalarla etkileşim için geçici, çalışma zaman
 
 İlişki
 İşte nasıl etkileşimde bulundukları:
-
+ 
 Dosya Açma : Bir dosyayı açtığınızda, işletim sistemi dosyanın meta verilerini almak için Inode'u arar ve ardından gelecekteki işlemler için bir Dosya Tanımlayıcı sağlar.
 Okuma/Yazma : Bir FD kullanarak okuduğunuzda veya yazdığınızda, işletim sistemi, diskteki verilerin nerede okunacağını/yazılacağını bulmak için Inode'a başvurur.
 Çoklu Erişim : Farklı işlemler aynı dosyayı açtığında veya bir dosyanın birden fazla sabit bağlantısı olduğunda birden fazla FD aynı Inode'a işaret edebilir.
