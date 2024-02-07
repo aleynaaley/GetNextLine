@@ -106,7 +106,7 @@ void f()
   
 
 
-# 
+# ............................................
 
 notlar 
 -- dosya tanımlayıcısı ile inodeler arasındaki fark----
