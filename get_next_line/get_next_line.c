@@ -17,6 +17,31 @@
 #include get_next_line.h
 
 
+char	*read_line(int fd, char *stack)
+{
+	char	*buffer;
+	int		read_byte;
+
+	read_byte = 1;
+	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buffer)
+		return (NULL);
+	while (!ft_strchr(stack, '\n') && read_byte != 0)
+	{
+		read_byte = read(fd, buffer, BUFFER_SIZE);
+		if (read_byte == -1)
+		{
+			free(buffer);
+			return (NULL);
+		}
+		buffer[read_byte] = '\0';
+		stack = ft_strjoin(stack, buffer);
+	}
+	free(buffer);
+	return (stack);
+}
+
+
 char *get_next_line(int fd){
     static char	*stack;
 	char		*line;
