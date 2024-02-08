@@ -77,8 +77,23 @@ close():  Açık dosya tanımlayıcılarını kapatır (soketler dahil). Bu, iş
  ```bash
 int close(int fd);
  ```
+Fonksiyon başarılı olduğunda 0, hata durumunda -1 döndürür.
+
 
 Bununla birlikte, dosya tanımlayıcıları sadece dosyalar için değil, aynı zamanda ağ soketleri, cihazlar, hatta bazen işlemler ve hafıza alanları gibi diğer sistem kaynakları için de kullanılır. Bu, işletim sisteminin bu kaynakları birleşik bir şekilde yönetmesini sağlar. Bu nedenle, dosya tanımlayıcıları genellikle “kaynak tanımlayıcıları” olarak da adlandırılır
+
+# Read() Fonksiyonu
+ Bu fonksiyon ,bir dosyadan belirli bir miktar veriyi okumak için kullanılır.` unistd.h` kütüphanesinde tanımlanmıştır ve genellikle `fcntl.h `ile birlikte kullanılır.
+ ```bash
+ssize_t read(int fd, void *buf, size_t count);
+ ```
+- `fd:` Okuma yapılacak dosyanın dosya tanımlayıcısı (file descriptor).
+- `buf:` Okunan verinin saklanacağı bellek alanının adresi.
+- `count:` Okunacak bayt sayısı.
+
+`ssize_t:` Bu tür, özellikle Unix sistem çağrıları ve diğer bazı işlevler tarafından döndürülen değerler için kullanılır. `ssize_t` türü, `ssize_t` değerlerinin negatif olabileceği bir tamsayı türüdür.`ssize_t`, özellikle okuma ve yazma işlemleri sırasında hata durumlarını ve dosya sonunu (-1, 0, 1, 2, vb.) temsil etmek için kullanılır.
+
+Yani, `ssize_t` türü özellikle işlemlerin başarı durumunu, hata durumunu veya özel durumları belirtmek için tasarlanmış bir türdür, bu nedenle negatif değerleri temsil edebilir. `size_t` ise pozitif tamsayı değerlerini temsil etmek üzere kullanılır ve genellikle bellek boyutları ve indeksleri ifade etmek için kullanılır.
 
 
 # Dosya Tanımlayıcısı ile İşaretçisi arasındaki fark (file descriptor & file pointer)? 
