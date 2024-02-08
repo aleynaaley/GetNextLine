@@ -1,6 +1,6 @@
 # Dosya Nedir?
 
-Dosya bilgileri genellikle dosyanın kendisi içinde değil, işletim sistemi tarafından yönetilen bir dosya sistemi içinde tutulur. Bu bilgiler genellikle “meta veri” olarak adlandırılır ve dosya adı, oluşturma tarihi, son değiştirilme tarihi, dosya boyutu ve sahibi gibi bilgileri içerir.Dosya üst bilgileri (oluşturma tarihi, son değişiklik tarihi...) meta veriler olarka adlandırılır.
+Dosya üst bilgileri genellikle dosyanın kendisi içinde değil, işletim sistemi tarafından yönetilen bir dosya sistemi içinde tutulur. Bu bilgiler genellikle `meta veri` olarak adlandırılır ve dosya adı, oluşturma tarihi, son değiştirilme tarihi, dosya boyutu ve sahibi gibi bilgileri içerir.
 
 Bir dosya sistemi, bir işletim sistemi tarafından kullanılan bir yapıdır ve sabit disk sürücü, katı hal sürücüsü (SSD) veya USB flash sürücü gibi bir veri saklama cihazlarında dosyaları düzenlemek ve yönetmek için kullanılır
 
@@ -62,6 +62,16 @@ open(): bir dosyayı açmak için kullanılır ve bir dosya tanımlayıcısı (f
  ```bash
 int open(const char *filename, int flags, mode_t mode);
  ```
+
+`open` fonksiyonunda kullanılan flagler aşağıdaki gibidir1:
+
+- `O_RDONLY:` Dosyayı sadece okuma modunda açar1.
+- `O_WRONLY:` Dosyayı sadece yazma modunda açar1.
+- `O_RDWR: `Dosyayı hem okuma hem yazma modunda açar1.
+- `O_APPEND:` Dosyayı eklemek için açar1. Bu bayrak belirtildiğinde, tüm yazma işlemleri dosyanın sonuna yapılır1.
+- `O_CREAT:` Dosyayı oluşturmak için açar1. Bu bayrak belirtildiğinde ve dosya mevcut değilse, open fonksiyonu dosyayı oluşturur1.
+- `O_TRUNC:` Dosyayı sıfırlamak için açar1. Bu bayrak belirtildiğinde ve dosya mevcut ise, open fonksiyonu dosyanın boyutunu sıfırlar1.
+- `O_EXCL:` Dosyayı özel olarak açar1. Bu bayrak, O_CREAT bayrağı ile birlikte kullanıldığında, dosya zaten varsa open fonksiyonu hata döndürür1.
 
 close():  Açık dosya tanımlayıcılarını kapatır (soketler dahil). Bu, işletim sistemine, o dosya tanımlayıcısı veya soket için ayrılan kaynakları serbest bırakmasını söyler.
  ```bash
