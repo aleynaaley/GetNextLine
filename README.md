@@ -58,11 +58,15 @@ int main()
 }
 ```
 
-open():
+open(): bir dosyayı açmak için kullanılır ve bir dosya tanımlayıcısı (file descriptor) döndürür. 
+ ```bash
+int open(const char *filename, int flags, mode_t mode);
+ ```
 
 close():  Açık dosya tanımlayıcılarını kapatır (soketler dahil). Bu, işletim sistemine, o dosya tanımlayıcısı veya soket için ayrılan kaynakları serbest bırakmasını söyler.
+ ```bash
 
-
+ ```
 
 Bununla birlikte, dosya tanımlayıcıları sadece dosyalar için değil, aynı zamanda ağ soketleri, cihazlar, hatta bazen işlemler ve hafıza alanları gibi diğer sistem kaynakları için de kullanılır. Bu, işletim sisteminin bu kaynakları birleşik bir şekilde yönetmesini sağlar. Bu nedenle, dosya tanımlayıcıları genellikle “kaynak tanımlayıcıları” olarak da adlandırılır
 
@@ -85,6 +89,9 @@ Statik değişkenler, kapsam dışına çıktıktan sonra bile değerlerini koru
 C dilinde static değişkenler varsayılan olarak 0 değerine sahip olur ancak global değişkenler başlangıçta bir değere atanmazlar bu nedenle çöp değer içerirler. Bu,değişkenin bellekteki konumunda ne olursa olsun orada ne varsa o değeri alacakları anlamına gelir. Bu nedenle, her zaman yerel değişkenleri kullanmadan önce bir değere atamak önemlidir. Aksi takdirde, beklenmeyen sonuçlar ortaya çıkabilir.
 
 Statik bir değişkeni başlatırken, değer hesaplama veya işlem içeren bir ifade kullanamazsınız.
+
+# Buffer
+
 
 
 # Bellek sızıntısı nedir?
