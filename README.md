@@ -75,7 +75,7 @@ int open(const char *filename, int flags, mode_t mode);
 
 close():  Açık dosya tanımlayıcılarını kapatır (soketler dahil). Bu, işletim sistemine, o dosya tanımlayıcısı veya soket için ayrılan kaynakları serbest bırakmasını söyler.
  ```bash
-
+int close(int fd);
  ```
 
 Bununla birlikte, dosya tanımlayıcıları sadece dosyalar için değil, aynı zamanda ağ soketleri, cihazlar, hatta bazen işlemler ve hafıza alanları gibi diğer sistem kaynakları için de kullanılır. Bu, işletim sisteminin bu kaynakları birleşik bir şekilde yönetmesini sağlar. Bu nedenle, dosya tanımlayıcıları genellikle “kaynak tanımlayıcıları” olarak da adlandırılır
@@ -104,6 +104,7 @@ Statik bir değişkeni başlatırken, değer hesaplama veya işlem içeren bir i
 
 
 
+
 # Bellek sızıntısı nedir?
 Programcılar bir yığında bellek oluşturduğunda ve onu silmeyi unuttuğunda bellek sızıntısı meydana gelir.Bellek sızıntılarını önlemek için, yığında ayrılan belleğin artık ihtiyaç duyulmadığında her zaman serbest bırakılması gerekir(free()).
 
@@ -120,7 +121,15 @@ void f()
     return;
 }
  ```
+# Kütüphane Ekleme
+
+C ve C++ dillerinde, #include direktifi ile bir kütüphaneyi dahil ederken <> ve "" arasında bir fark vardır.
+
+- #include <kütüphane>: Bu şekilde bir kütüphane dahil edildiğinde, derleyici öncelikle sistem kütüphanelerinin bulunduğu dizinlerde belirtilen kütüphaneyi arar. Bu genellikle standart kütüphaneler için kullanılır. Örneğin,` #include <stdio.h>`.
+
+- #include "kütüphane": Bu şekilde bir kütüphane dahil edildiğinde, derleyici öncelikle kütüphaneyi mevcut dizinde arar. Eğer bulamazsa, sistem kütüphanelerinin bulunduğu dizinlerde arama yapar. Bu genellikle kullanıcının oluşturduğu başlık dosyaları için kullanılır. Örneğin,` #include "my_header.h"`.
   
+
 
 
 # ............................................
