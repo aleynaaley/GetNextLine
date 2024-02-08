@@ -58,7 +58,7 @@ int main()
 }
 ```
 
-open(): bir dosyayı açmak için kullanılır ve bir dosya tanımlayıcısı (file descriptor) döndürür. 
+open(): bir dosyayı açmak için kullanılır ve bir dosya tanımlayıcısı (file descriptor) döndürür.Eğer bir hata oluşursa, -1 değerini döndürür. 
  ```bash
 int open(const char *filename, int flags, mode_t mode);
  ```
@@ -94,6 +94,10 @@ ssize_t read(int fd, void *buf, size_t count);
 `ssize_t:` Bu tür, özellikle Unix sistem çağrıları ve diğer bazı işlevler tarafından döndürülen değerler için kullanılır. `ssize_t` türü, `ssize_t` değerlerinin negatif olabileceği bir tamsayı türüdür.`ssize_t`, özellikle okuma ve yazma işlemleri sırasında hata durumlarını ve dosya sonunu (-1, 0, 1, 2, vb.) temsil etmek için kullanılır.
 
 Yani, `ssize_t` türü özellikle işlemlerin başarı durumunu, hata durumunu veya özel durumları belirtmek için tasarlanmış bir türdür, bu nedenle negatif değerleri temsil edebilir. `size_t` ise pozitif tamsayı değerlerini temsil etmek üzere kullanılır ve genellikle bellek boyutları ve indeksleri ifade etmek için kullanılır.
+
+read fonksiyonu okunan byte sayısını (pozitif bir tamsayı olarak) döndürür. Bu değer, 0'dan farklı bir pozitif sayı olacaktır.
+- 0: Dosya sonuna ulaşıldığında veya okuma işlemi sırasında veri kalmadığında, read fonksiyonu 0 döndürür.
+- -1: Bir hata durumu oluştuğunda, read fonksiyonu -1 döndürür ve errno değişkeni ilgili hata kodunu içerir. Hata kodları, dosya sonuna ulaşma, dosya tanımlayıcısı hatası, okuma izinleri gibi durumları belirtebilir.
 
 
 # Dosya Tanımlayıcısı ile İşaretçisi arasındaki fark (file descriptor & file pointer)? 
