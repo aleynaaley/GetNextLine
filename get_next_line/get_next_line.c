@@ -18,6 +18,16 @@
 
 
 char *get_next_line(int fd){
+    static char	*stack;
+	char		*line;
 
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	stack = read_line(fd, stack);
+	if (!stack)
+		return (NULL);
+	line = get_line(stack);
+	stack = new_line(stack);
+	return (line);
 }
 
