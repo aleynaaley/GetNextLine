@@ -93,7 +93,8 @@ ssize_t read(int fd, void *buf, size_t count);
 
 `ssize_t:` Bu tür, özellikle Unix sistem çağrıları ve diğer bazı işlevler tarafından döndürülen değerler için kullanılır. `ssize_t` türü, `ssize_t` değerlerinin negatif olabileceği bir tamsayı türüdür.`ssize_t`, özellikle okuma ve yazma işlemleri sırasında hata durumlarını ve dosya sonunu (-1, 0, 1, 2, vb.) temsil etmek için kullanılır.
 
-Yani, `ssize_t` türü özellikle işlemlerin başarı durumunu, hata durumunu veya özel durumları belirtmek için tasarlanmış bir türdür, bu nedenle negatif değerleri temsil edebilir. `size_t` ise pozitif tamsayı değerlerini temsil etmek üzere kullanılır ve genellikle bellek boyutları ve indeksleri ifade etmek için kullanılır.
+Yani, `ssize_t` türü özellikle işlemlerin başarı durumunu, hata durumunu veya özel durumları belirtmek için tasarlanmış bir türdür, bu nedenle negatif değerleri temsil edebilir. `size_t` ise pozitif tamsayı değerlerini temsil etmek üzere kullanılır ve genellikle bellek boyutları ve indeksleri ifade etmek için kullanılır.read fonksiyonu, her çağrıldığında dosyanın kaldığı yerden devam eder. Bu nedenle bir önceki çağrının bittiği konumdan sonraki veriyi okumaya devam eder.
+
 
 read fonksiyonu okunan byte sayısını (pozitif bir tamsayı olarak) döndürür. Bu değer, 0'dan farklı bir pozitif sayı olacaktır.
 - 0: Dosya sonuna ulaşıldığında veya okuma işlemi sırasında veri kalmadığında, read fonksiyonu 0 döndürür.
