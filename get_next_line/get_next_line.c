@@ -16,17 +16,17 @@
 
 #include "get_next_line.h"
 
-char *get_next_line(int fd){
-    static char	*stack;
-	char		*line;
+char	*get_next_line(int fd)
+{
+	char		*str;
+	static char	*new_str;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	// if (fd < 0 || BUFFER_SIZE <= 0)
+	//	return (0);
+	new_str = ft_readnewstr(fd, new_str); //dosyada okuma yapar buffer size kadar okur \n görene kadar dögüde okur .okunan değeri atar
+	if (!new_str)
 		return (NULL);
-	stack = read_line(fd, stack);
-	if (!stack)
-		return (NULL);
-	line = get_line(stack);
-	stack = new_line(stack);
-	return (line);
+	str = ft_getstr(new_str);  //new_str içindeki veriden bir satırı alır ve str ye atar
+	new_str = ft_newstr(new_str);  //işlenmiş veriyi (str içindeki satrırı çıkartır) geriye kalanı newstrye atar
+	return (str);
 }
-
