@@ -82,7 +82,7 @@ Fonksiyon başarılı olduğunda 0, hata durumunda -1 döndürür.
 
 Bununla birlikte, dosya tanımlayıcıları sadece dosyalar için değil, aynı zamanda ağ soketleri, cihazlar, hatta bazen işlemler ve hafıza alanları gibi diğer sistem kaynakları için de kullanılır. Bu, işletim sisteminin bu kaynakları birleşik bir şekilde yönetmesini sağlar. Bu nedenle, dosya tanımlayıcıları genellikle “kaynak tanımlayıcıları” olarak da adlandırılır
 
-# Read() Fonksiyonu
+# read() Fonksiyonu
  Bu fonksiyon ,bir dosyadan belirli bir miktar veriyi okumak için kullanılır.` unistd.h` kütüphanesinde tanımlanmıştır ve genellikle `fcntl.h `ile birlikte kullanılır.
  ```bash
 ssize_t read(int fd, void *buf, size_t count);
@@ -100,6 +100,8 @@ read fonksiyonu okunan byte sayısını (pozitif bir tamsayı olarak) döndürü
 - 0: Dosya sonuna ulaşıldığında veya okuma işlemi sırasında veri kalmadığında, read fonksiyonu 0 döndürür.
 - -1: Bir hata durumu oluştuğunda, read fonksiyonu -1 döndürür ve errno değişkeni ilgili hata kodunu içerir. Hata kodları, dosya sonuna ulaşma, dosya tanımlayıcısı hatası, okuma izinleri gibi durumları belirtebilir.
 
+# lseek() Fonksiyonu 
+Unix benzeri işletim sistemlerinde dosya imlecini konumlandırmak için kullanılan bir sistem çağrısıdır. Bu fonksiyon, dosya içinde okuma veya yazma işlemleri yapmadan önce dosya imlecini belirli bir konuma getirmek için kullanılır.
 
 # Dosya Tanımlayıcısı ile İşaretçisi arasındaki fark (file descriptor & file pointer)? 
 
