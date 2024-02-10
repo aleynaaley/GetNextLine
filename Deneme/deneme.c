@@ -41,7 +41,7 @@ int main()
     }
 	
 	// Dosyadan okuma yapmak için buffer boyutunu belirleyin
-    size_t buffer_size = 5;
+    size_t buffer_size = 100;
     char buffer[buffer_size];
 
     // Dosyadan buffer_size kadar veriyi okuyun
@@ -79,3 +79,6 @@ size_t	ft_strlen(const char *s)
 	}
 	return (length);
 }
+
+
+//Bu kodda bir dosya açıyoruz içine bir metin yazıyor ve onun 100 karakter kadar okuyup yazdırıyor ve sonra dosyayı kapatıyoruz.
