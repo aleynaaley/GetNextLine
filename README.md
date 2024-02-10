@@ -93,15 +93,27 @@ ssize_t read(int fd, void *buf, size_t count);
 
 `ssize_t:` Bu tür, özellikle Unix sistem çağrıları ve diğer bazı işlevler tarafından döndürülen değerler için kullanılır. `ssize_t` türü, `ssize_t` değerlerinin negatif olabileceği bir tamsayı türüdür.`ssize_t`, özellikle okuma ve yazma işlemleri sırasında hata durumlarını ve dosya sonunu (-1, 0, 1, 2, vb.) temsil etmek için kullanılır.
 
-Yani, `ssize_t` türü özellikle işlemlerin başarı durumunu, hata durumunu veya özel durumları belirtmek için tasarlanmış bir türdür, bu nedenle negatif değerleri temsil edebilir. `size_t` ise pozitif tamsayı değerlerini temsil etmek üzere kullanılır ve genellikle bellek boyutları ve indeksleri ifade etmek için kullanılır.read fonksiyonu, her çağrıldığında dosyanın kaldığı yerden devam eder. Bu nedenle bir önceki çağrının bittiği konumdan sonraki veriyi okumaya devam eder.
-
+Yani, `ssize_t` türü özellikle işlemlerin başarı durumunu, hata durumunu veya özel durumları belirtmek için tasarlanmış bir türdür, bu nedenle negatif değerleri temsil edebilir. `size_t` ise pozitif tamsayı değerlerini temsil etmek üzere kullanılır ve genellikle bellek boyutları ve indeksleri ifade etmek için kullanılır.
 
 read fonksiyonu okunan byte sayısını (pozitif bir tamsayı olarak) döndürür. Bu değer, 0'dan farklı bir pozitif sayı olacaktır.
 - 0: Dosya sonuna ulaşıldığında veya okuma işlemi sırasında veri kalmadığında, read fonksiyonu 0 döndürür.
 - -1: Bir hata durumu oluştuğunda, read fonksiyonu -1 döndürür ve errno değişkeni ilgili hata kodunu içerir. Hata kodları, dosya sonuna ulaşma, dosya tanımlayıcısı hatası, okuma izinleri gibi durumları belirtebilir.
 
+Read fonksiyonu, her çağrıldığında dosyanın kaldığı yerden devam eder-dosyayı close() ile kapatmadığın sürece- . Bu nedenle bir önceki çağrının bittiği konumdan sonraki veriyi okumaya devam eder.
+
+
 # lseek() Fonksiyonu 
 Unix benzeri işletim sistemlerinde dosya imlecini konumlandırmak için kullanılan bir sistem çağrısıdır. Bu fonksiyon, dosya içinde okuma veya yazma işlemleri yapmadan önce dosya imlecini belirli bir konuma getirmek için kullanılır.
+
+ ```bash
+off_t lseek(int fd, off_t offset, int whence);
+ ```
+
+- fd: Dosya tanımlayıcısı (file descriptor).
+- offset: Konumlandırma yapılacak yerden itibaren ofset değeri.
+- whence: Konumlandırma işleminin nasıl yapılacağını belirten bir değer. SEEK_SET dosyanın başından itibaren, SEEK_CUR mevcut konumdan itibaren, SEEK_END dosyanın sonundan itibaren konumlandırmayı ifade eder.
+
+Bu fonksiyon, dosya imlecinin pozisyonunu ayarlamak için kullanıldığından, dosyadan veri okuma veya yazma işlemleri öncesinde dosya imlecini doğru konuma getirmek için önemlidir.
 
 # Dosya Tanımlayıcısı ile İşaretçisi arasındaki fark (file descriptor & file pointer)? 
 
@@ -123,7 +135,7 @@ C dilinde static değişkenler varsayılan olarak 0 değerine sahip olur ancak g
 Statik bir değişkeni başlatırken, değer hesaplama veya işlem içeren bir ifade kullanamazsınız.
 
 # Buffer
-
+Buffer(Tampon bellek),
 
 
 
