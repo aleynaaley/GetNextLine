@@ -65,13 +65,13 @@ int open(const char *filename, int flags, mode_t mode);
 
 `open` fonksiyonunda kullanılan flagler aşağıdaki gibidir1:
 
-- `O_RDONLY:` Dosyayı sadece okuma modunda açar1.
-- `O_WRONLY:` Dosyayı sadece yazma modunda açar1.
-- `O_RDWR: `Dosyayı hem okuma hem yazma modunda açar1.
-- `O_APPEND:` Dosyayı eklemek için açar1. Bu bayrak belirtildiğinde, tüm yazma işlemleri dosyanın sonuna yapılır1.
-- `O_CREAT:` Dosyayı oluşturmak için açar1. Bu bayrak belirtildiğinde ve dosya mevcut değilse, open fonksiyonu dosyayı oluşturur1.
-- `O_TRUNC:` Dosyayı sıfırlamak için açar1. Bu bayrak belirtildiğinde ve dosya mevcut ise, open fonksiyonu dosyanın boyutunu sıfırlar1.
-- `O_EXCL:` Dosyayı özel olarak açar1. Bu bayrak, O_CREAT bayrağı ile birlikte kullanıldığında, dosya zaten varsa open fonksiyonu hata döndürür1.
+- `O_RDONLY:` Dosyayı sadece okuma modunda açar.
+- `O_WRONLY:` Dosyayı sadece yazma modunda açar.
+- `O_RDWR: `Dosyayı hem okuma hem yazma modunda açar.
+- `O_APPEND:` Dosyayı eklemek için açar1. Bu bayrak belirtildiğinde, tüm yazma işlemleri dosyanın sonuna yapılır.
+- `O_CREAT:` Dosyayı oluşturmak için açar1. Bu bayrak belirtildiğinde ve dosya mevcut değilse, open fonksiyonu dosyayı oluşturur.
+- `O_TRUNC:` Dosyayı sıfırlamak için açar1. Bu bayrak belirtildiğinde ve dosya mevcut ise, open fonksiyonu dosyanın boyutunu sıfırlar.
+- `O_EXCL:` Dosyayı özel olarak açar. Bu bayrak, O_CREAT bayrağı ile birlikte kullanıldığında, dosya zaten varsa open fonksiyonu hata döndürür.
 
 close():  Açık dosya tanımlayıcılarını kapatır (soketler dahil). Bu, işletim sistemine, o dosya tanımlayıcısı veya soket için ayrılan kaynakları serbest bırakmasını söyler.
  ```bash
