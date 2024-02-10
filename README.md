@@ -135,13 +135,18 @@ C dilinde static değişkenler varsayılan olarak 0 değerine sahip olur ancak g
 Statik bir değişkeni başlatırken, değer hesaplama veya işlem içeren bir ifade kullanamazsınız.
 
 # Buffer
-Buffer(Tampon bellek),
+Buffer(Tampon bellek),verilerin I/O (giriş/çıkış) işlemlerinden sonra belleğe yazılmadan önce geçici bir alanda bekletildiği bir tampon bölgedir.Bufferlar, I/O işlemlerinin daha verimli ve hızlı olmasını sağlar.
+Bellekten okuma ve belleğe yazma işlemleri maliyetlidir. Bufferlar, bu işlemleri daha etkin hale getirir.
+Örneğin, dosyadan veri okurken tüm veriyi anında belleğe yazmak yerine, belirli bir boyutta bufferda toplar ve daha sonra toplu olarak belleğe yazarız. Bu performansı artırır.
 
+Buffer size, bir bellek bloğunun veya dizi elemanlarının toplam sayısını ifade eder. Bu terim, genellikle bir veri kümesini veya akışını geçici olarak saklamak için ayrılan bellek alanını ifade eder. Buffer, bir kaynaktan gelen verilerin geçici olarak depolanmasını sağlar, ardından bu verileri başka bir kaynağa veya işleme aktarabilir.
 
+Özellikle read veya write fonksiyonları kullanılırken, bellekte bir geçici depolama alanı (buffer) kullanmak yaygındır.Bu işlemler sırasında bellek alanının boyutu, buffer size olarak adlandırılır.
+
+Kısaca, Buffer, verileri geçici olarak saklamak için kullanılan bir bellek alanıdır. Buffer size, bu bellek alanının boyutunu belirtir ve tek seferde bu kadar veriyi tutabilir. C dilinde buffer kullanmak için `malloc` veya `calloc` gibi fonksiyonlar kullanılabilir. İsim verilmeden de tanımlanabilir.
 
 # Bellek sızıntısı nedir?
 Programcılar bir yığında bellek oluşturduğunda ve onu silmeyi unuttuğunda bellek sızıntısı meydana gelir.Bellek sızıntılarını önlemek için, yığında ayrılan belleğin artık ihtiyaç duyulmadığında her zaman serbest bırakılması gerekir(free()).
-
 
 
  ```bash
@@ -155,6 +160,7 @@ void f()
     return;
 }
  ```
+
 # Kütüphane Ekleme
 
 C ve C++ dillerinde, #include direktifi ile bir kütüphaneyi dahil ederken <> ve "" arasında bir fark vardır.
