@@ -13,7 +13,8 @@
 #include "get_next_line.h"
 
 // buffer size kadar satır üzerinde okuma yapayıyro ve /n 
-char *read_line(int fd, static char new_str){
+char	*read_line(int fd, static char new_str)
+{
 	char	*ytr;
 	int		byte_count;
 	
@@ -40,17 +41,60 @@ char *read_line(int fd, static char new_str){
 // bu fonksiyonda newstr de ki alt satırda okuduğu fazlalığı çıkarıp str ye ilk satırı atar
 char	*get_str(char *new_str)
 {
+	int		i;
+	char	*str;
 
+	i = 0;
+	if (!new_str[i])
+		return (NULL);
+	while (new_str[i] && new_str[i] != '\n')
+		i++;
+	str = (char *)malloc(sizeof(char) * (i + 2));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (new_str[i] && new_str[i] != '\n')
+	{
+		str[i] = new_str[i];
+		i++;
+	}
+	if (new_str[i] == '\n')
+	{
+		str[i] = new_str[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 	
 }
 
 
 char	*newstr(char new_str)
 {
+	int		i;
+	int		j;
+	char	*str;
 
-	
+	i = 0;
+	while (new_str[i] && new_str[i] != '\n')
+		i++;
+	if (!new_str[i])
+	{
+		free(new_str);
+		return (NULL);
+	}
+	str = (char *)malloc(sizeof(char) * (ft_strlen(new_str) - i + 1));
+	if (!str)
+		return (NULL);
+	i++;
+	j = 0;
+	while (new_str[i])
+		str[j++] = new_str[i++];
+	str[j] = '\0';
+	free(new_str);
+	return (str);
 }
-
+	
 
 char	*ft_strchr(char *s, int c)
 {
