@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-// buffer size kadar satır üzerinde okuma yapayıyro ve /n 
+
 char	*read_line(int fd, char *new_str)
 {
 	char	*ytr;
@@ -38,7 +38,6 @@ char	*read_line(int fd, char *new_str)
 }
 
 
-// bu fonksiyonda newstr de ki alt satırda okuduğu fazlalığı çıkarıp str ye ilk satırı atar
 char	*get_str(char *new_str)
 {
 	int		i;
