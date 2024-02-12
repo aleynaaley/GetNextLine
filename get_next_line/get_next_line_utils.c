@@ -13,7 +13,7 @@
 #include "get_next_line.h"
 
 // buffer size kadar satır üzerinde okuma yapayıyro ve /n 
-char	*read_line(int fd, static char new_str)
+char	*read_line(int fd, char *new_str)
 {
 	char	*ytr;
 	int		byte_count;
@@ -69,7 +69,7 @@ char	*get_str(char *new_str)
 }
 
 
-char	*newstr(char new_str)
+char	*newstr(char *new_str)
 {
 	int		i;
 	int		j;
