@@ -12,32 +12,6 @@
 
 #include "get_next_line.h"
 
-
-char	*read_line(int fd, char *new_str)
-{
-	char	*ytr;
-	int		byte_count;
-	
-	ytr = malloc((BUFFER_SİZE + 1)* sizeof(char));
-	if(!ytr)
-		return (NULL);
-	byte_count = 1;       //okunan byte sayısı
-	while(!ft_strchr(new_str, '\n') && byte_count != 0)
-	{
-		byte_count = read(fd, ytr, BUFFER_SIZE);
-		if(byte_count == -1)
-		{
-			free(ytr);
-			return (NULL);
-		}
-		ytr[byte_count] = '\0';
-		new_str = ft_strjoin(new_str, ytr);
-	}
-	free(ytr);
-	return(new_str);	
-}
-
-
 char	*get_str(char *new_str)
 {
 	int		i;
@@ -64,11 +38,9 @@ char	*get_str(char *new_str)
 	}
 	str[i] = '\0';
 	return (str);
-	
 }
 
-
-char	*newstr(char *new_str)
+char	*ft_new_str(char *new_str)
 {
 	int		i;
 	int		j;
@@ -93,7 +65,6 @@ char	*newstr(char *new_str)
 	free(new_str);
 	return (str);
 }
-	
 
 char	*ft_strchr(char *s, int c)
 {
@@ -102,4 +73,43 @@ char	*ft_strchr(char *s, int c)
 	if (*s == (char)c)
 		return ((char *)s);
 	return (0);
+}
+
+size_t	ft_strlen(char *s)
+{
+	size_t	length;
+
+	length = 0;
+	while (s[length] != '\0')
+	{
+		length++;
+	}
+	return (length);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	char	*str;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	if (!s1 || !s2)
+		return (0);
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (0);
+	while (s1[i] != '\0')
+	{
+		str[i] = ((unsigned char *)s1)[i];
+		i++;
+	}
+	while (s2[j] != '\0')
+	{
+		str[i + j] = ((unsigned char *)s2)[j];
+		j++;
+	}
+	str[i + j] = '\0';
+	return (str);
 }
