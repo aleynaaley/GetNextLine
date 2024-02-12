@@ -25,6 +25,6 @@ char	*get_next_line(int fd);
 char	*ft_strchr(char *s, int c);
 char	*newstr(char new_str);
 char	*get_str(char *new_str);
-char	*read_line(int fd, static char new_str);
+char	*read_line(int fd,char *new_str);
 
 #endif
