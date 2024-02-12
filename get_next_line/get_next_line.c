@@ -10,33 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// read , malloc, free kullanabilirsin
-//fd nin işaret ettiği metin dosyasının her seferinde sadece tek satır okuyacak 
-
-
 #include "get_next_line.h"
 
+char	*read_line(int fd, char *new_str)
+{
+	char	*ytr;
+	int		byte_count;
+
+	ytr = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!ytr)
+		return (NULL);
+	byte_count = 1;
+	while (!ft_strchr(new_str, '\n') && byte_count != 0)
+	{
+		byte_count = read(fd, ytr, BUFFER_SIZE);
+		if (byte_count == -1)
+		{
+			free(ytr);
+			return (NULL);
+		}
+		ytr[byte_count] = '\0';
+		new_str = ft_strjoin(new_str, ytr);
+	}
+	free(ytr);
+	return (new_str);
+}
 
 char	*get_next_line(int fd)
 {
 	char		*str;
 	static char	*new_str;
 
-	// if (fd < 0 || BUFFER_SIZE <= 0)
-	//	return (0);
-	new_str = read_line(fd, new_str); //dosyada okuma yapar buffer size kadar okur \n görene kadar dögüde okur .okunan değeri atar
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (0);
+	new_str = read_line(fd, new_str);
 	if (!new_str)
 		return (NULL);
-	str = getstr(new_str);  //new_str içindeki veriden bir satırı alır ve str ye atar
-	new_str = newstr(new_str);  //işlenmiş veriyi (str içindeki satrırı çıkartır) geriye kalanı newstrye atar
+	str = get_str(new_str);
+	new_str = ft_new_str(new_str);
 	return (str);
-}
-
-
-
-
-
-char main(){
-
-	
 }
