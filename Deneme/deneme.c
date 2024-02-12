@@ -143,3 +143,31 @@ char	*ft_strjoin(char *left_str, char *buff)
 }
 
 
+
+
+
+
+#include <stdio.h>
+
+int main(){
+
+	int fd = open("aley.text", O_RDONLY);
+	
+	//char *a = "kırk iki curcus nbr" ;
+	//ssize_t b = write(fd,a,ft_strlen(a));
+	lseek(fd,0,SEEK_SET);
+	
+	size_t buffer_size = 6;
+	char buffer[buffer_size];
+	ssize_t bytes_read = read(fd, buffer, buffer_size);
+	printf("%s \n", buffer);
+    sleep(2);
+    read(fd, buffer, buffer_size);
+	printf("%s", buffer); //(genişlik,string)
+    close(fd);
+
+	printf("%s",get_next_line(fd));
+
+	return 0;
+}
+
