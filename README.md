@@ -97,7 +97,7 @@ Yani, `ssize_t` türü özellikle işlemlerin başarı durumunu, hata durumunu v
 
 read fonksiyonu okunan byte sayısını (pozitif bir tamsayı olarak) döndürür. Bu değer, 0'dan farklı bir pozitif sayı olacaktır.
 - 0: Dosya sonuna ulaşıldığında veya okuma işlemi sırasında veri kalmadığında, read fonksiyonu 0 döndürür.
-- -1: Bir hata durumu oluştuğunda, read fonksiyonu -1 döndürür ve errno değişkeni ilgili hata kodunu içerir. Hata kodları, dosya sonuna ulaşma, dosya tanımlayıcısı hatası, okuma izinleri gibi durumları belirtebilir.
+- -1: Bir hata durumu oluştuğunda, read fonksiyonu -1 döndürür ve errno değişkeni ilgili hata kodunu içerir. Hata kodları, dosya tanımlayıcısı hatası, okuma izinleri gibi durumları belirtebilir.
 
 Read fonksiyonu, her çağrıldığında dosyanın kaldığı yerden devam eder-dosyayı close() ile kapatmadığın sürece- . Bu nedenle bir önceki çağrının bittiği konumdan sonraki veriyi okumaya devam eder.
 
