@@ -146,7 +146,7 @@ Buffer size, bir bellek bloğunun veya dizi elemanlarının toplam sayısını i
 Kısaca, Buffer, verileri geçici olarak saklamak için kullanılan bir bellek alanıdır. Buffer size, bu bellek alanının boyutunu belirtir ve tek seferde bu kadar veriyi tutabilir. C dilinde buffer kullanmak için `malloc` veya `calloc` gibi fonksiyonlar kullanılabilir. İsim verilmeden de tanımlanabilir.
 
 # Bellek sızıntısı nedir?
-Programcılar bir yığında bellek oluşturduğunda ve onu silmeyi unuttuğunda bellek sızıntısı meydana gelir.Bellek sızıntılarını önlemek için, yığında ayrılan belleğin artık ihtiyaç duyulmadığında her zaman serbest bırakılması gerekir(free()).
+Programcılar bir yığında bellek oluşturduğunda ve onu silmeyi unuttuğunda bellek sızıntısı(leaks) meydana gelir.Bellek sızıntılarını önlemek için, yığında ayrılan belleğin artık ihtiyaç duyulmadığında her zaman serbest bırakılması gerekir(free()).
 
 
  ```bash
