@@ -168,22 +168,4 @@ C ve C++ dillerinde, #include direktifi ile bir kütüphaneyi dahil ederken <> v
 - #include <kütüphane>: Bu şekilde bir kütüphane dahil edildiğinde, derleyici öncelikle sistem kütüphanelerinin bulunduğu dizinlerde belirtilen kütüphaneyi arar. Bu genellikle standart kütüphaneler için kullanılır. Örneğin,` #include <stdio.h>`.
 
 - #include "kütüphane": Bu şekilde bir kütüphane dahil edildiğinde, derleyici öncelikle kütüphaneyi mevcut dizinde arar. Eğer bulamazsa, sistem kütüphanelerinin bulunduğu dizinlerde arama yapar. Bu genellikle kullanıcının oluşturduğu başlık dosyaları için kullanılır. Örneğin,` #include "my_header.h"`.
-  
-
-
-
-# ............................................
-
-notlar 
--- dosya tanımlayıcısı ile inodeler arasındaki fark----
-Dosya Tanımlayıcıları, dosyalarla etkileşim için geçici, çalışma zamanı geçişleriniz gibidir; Inode'lar ise tüm önemli ayrıntıları tutan kalıcı sahne arkası kimlikleridir.
-
-İlişki
-İşte nasıl etkileşimde bulundukları:
- 
-Dosya Açma : Bir dosyayı açtığınızda, işletim sistemi dosyanın meta verilerini almak için Inode'u arar ve ardından gelecekteki işlemler için bir Dosya Tanımlayıcı sağlar.
-Okuma/Yazma : Bir FD kullanarak okuduğunuzda veya yazdığınızda, işletim sistemi, diskteki verilerin nerede okunacağını/yazılacağını bulmak için Inode'a başvurur.
-Çoklu Erişim : Farklı işlemler aynı dosyayı açtığında veya bir dosyanın birden fazla sabit bağlantısı olduğunda birden fazla FD aynı Inode'a işaret edebilir.
-
-
 
