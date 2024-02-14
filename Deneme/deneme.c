@@ -67,24 +67,7 @@ int main()
 	return (0);
 }
 
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	length;
-
-	length = 0;
-	while (s[length] != '\0')
-	{
-		length++;
-	}
-	return (length);
-}
-
-
-//Bu kodda bir dosya açıyoruz içine bir metin yazıyor ve onun 100 karakter kadar okuyup yazdırıyor ve sonra dosyayı kapatıyoruz.
-
-
-size_t	ft_strlen(char *s)
+size_t	strlen(char *s)
 {
 	size_t	i;
 
@@ -96,78 +79,4 @@ size_t	ft_strlen(char *s)
 	return (i);
 }
 
-char	*ft_strchr(char *s, int c)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	if (c == '\0')
-		return ((char *)&s[ft_strlen(s)]);
-	while (s[i] != '\0')
-	{
-		if (s[i] == (char) c)
-			return ((char *)&s[i]);
-		i++;
-	}
-	return (0);
-}
-
-char	*ft_strjoin(char *left_str, char *buff)
-{
-	size_t	i;
-	size_t	j;
-	char	*str;
-
-	if (!left_str)
-	{
-		left_str = (char *)malloc(1 * sizeof(char));
-		left_str[0] = '\0';
-	}
-	if (!left_str || !buff)
-		return (NULL);
-	str = malloc(sizeof(char) * ((ft_strlen(left_str) + ft_strlen(buff)) + 1));
-	if (str == NULL)
-		return (NULL);
-	i = -1;
-	j = 0;
-	if (left_str)
-		while (left_str[++i] != '\0')
-			str[i] = left_str[i];
-	while (buff[j] != '\0')
-		str[i++] = buff[j++];
-	str[ft_strlen(left_str) + ft_strlen(buff)] = '\0';
-	free(left_str);
-	return (str);
-}
-
-
-
-
-
-
-#include <stdio.h>
-
-int main(){
-
-	int fd = open("aley.text", O_RDONLY);
-	
-	//char *a = "kırk iki curcus nbr" ;
-	//ssize_t b = write(fd,a,ft_strlen(a));
-	lseek(fd,0,SEEK_SET);
-	
-	size_t buffer_size = 6;
-	char buffer[buffer_size];
-	ssize_t bytes_read = read(fd, buffer, buffer_size);
-	printf("%s \n", buffer);
-    sleep(2);
-    read(fd, buffer, buffer_size);
-	printf("%s", buffer); //(genişlik,string)
-    close(fd);
-
-	printf("%s",get_next_line(fd));
-
-	return 0;
-}
-
+//Bu kodda bir dosya açıyoruz içine bir metin yazıyor ve onun 100 karakter kadar okuyup yazdırıyor ve sonra dosyayı kapatıyoruz.
